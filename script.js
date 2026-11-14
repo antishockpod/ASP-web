@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 로고 클릭 이벤트 추가
     logo.addEventListener('click', () => {
-        window.location.href = 'index1.html'; // 여기에 열고자 하는 URL을 넣으세요
+        window.location.href = 'index.html'; // 여기에 열고자 하는 URL을 넣으세요
     });
 
     function rollLogo() {
