@@ -1,0 +1,27 @@
+/* marquee.css 파일 */
+.logo-marquee {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.logo-container {
+    display: flex;
+    flex-wrap: nowrap;
+    width: calc(200px * 21 * 2); /* 로고 개수 x 2 */
+    animation: scroll 40s linear infinite;
+}
+
+.logo {
+    width: 400px;
+    height: auto;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-200px * 21)); /* 로고 개수만큼 이동 */
+    }
+}

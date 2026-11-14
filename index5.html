@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Antishockpod</title>
+  <link rel="stylesheet" href="reset6.css">
+  <link rel="stylesheet" href="style6.css">
+</head>
+<body>
+  <div class="header">Antishockpod</div>
+  <div class="main-content-1">
+    <div class="blue-text">
+
+      메롱
+
+  </div>
+  </div>
+
+  <script>
+    class FolderScroll {
+      constructor(wrapper, sticky) {
+        this.wrapper = wrapper;
+        this.sticky = sticky;
+        this.children = this.sticky.querySelectorAll('.section');
+        this.length = this.children.length;
+        this.headerVh = 6;
+        this.contentVh = 96 - this.headerVh * this.length;
+        this.start = 0;
+        this.end = 0;
+      }
+
+      init() {
+        this.start = this.wrapper.offsetTop + 100;
+        this.end = this.wrapper.offsetTop + this.wrapper.offsetHeight - innerHeight - 100;
+
+        this.children.forEach((child, i) => {
+          child.style.bottom = -(100 - this.headerVh * (this.length - i)) + 'vh';
+          child.querySelector('.title').style.height = this.headerVh + 'vh';
+          child.querySelector('.content').style.height = this.contentVh + 'vh';
+        });
+      }
+
+      animate() {
+        this.children.forEach((child, i) => {
+          const unit = (this.end - this.start) / this.length;
+          const s = this.start + unit * i + 100;
+          const e = this.start + unit * (i + 1);
+
+          if (scrollY <= s) {
+            child.style.transform = `translate3d(0, 0, 0)`;
+          } else if (scrollY >= e) {
+            child.style.transform = `translate3d(0, ${-this.contentVh}%, 0)`;
+          } else {
+            child.style.transform = `translate3d(0, ${(scrollY - s) / (unit - 100) * (-this.contentVh)}%, 0)`;
+          }
+        });
+      }
+    }
+    
+    const mainContent1 = document.querySelector('.main-content-1');
+    const sticky = document.querySelector('.sticky');
+    const folderScroll = new FolderScroll(mainContent1, sticky);
+    folderScroll.init();
+
+    window.addEventListener('resize', () => {
+      folderScroll.init();
+    });
+    window.addEventListener('scroll', () => {
+      folderScroll.animate();
+    });
+  </script>
+</body>
+</html>
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <title>CSS 텍스트 호버 효과 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 반응형 웹페이지를 위한 메타 태그 -->
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="style4.css">
+  </head>
+  <body>
+    <a href="https://www.instagram.com/antishockpod/" class="left">www.instagram.com/antishockpod/</a>
+    <a href="https://www.youtube.com/@AntishockPod" class="right">www.youtube.com/@AntishockPod</a>
+    <a href="mailto:antishockpod@gmail.com" class="top">antishockpod@gmail.com</a>
+    <a href="index1.html" class="center">HOME</a>
+  </body>
+</html>

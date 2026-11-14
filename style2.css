@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container {
+    position: absolute;
+    top: 3%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+}
+
+.logo {
+    width: 80px; /* 로고 이미지의 너비 조정 */
+    position: absolute;
+    top: 50; /* 로고의 초기 위치 설정 */
+    left: 0;
+    animation: roll 4s linear forwards; /* 애니메이션 적용 */
+    transform: translate(-50%, -50%);
+    cursor: pointer; /* 클릭할 수 있음을 나타내는 커서 */
+}
+
+@keyframes roll {
+    0% {
+        transform: translateX(-100%) rotate(0deg); /* 초기 위치와 회전 각도 */
+    }
+    100% {
+        transform: translateX(100%) rotate(360deg); /* 최종 위치와 회전 각도 */
+    }
+}
+
+.video-container {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 1000px;
+
+    height: auto;
+
+    aspect-ratio: 16 / 9;
+
+    margin: 30px auto;
+
+    overflow: hidden;
+
+}
+
+.video-container iframe {
+
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    border: 0;
+
+}
